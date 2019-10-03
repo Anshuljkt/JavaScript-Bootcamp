@@ -124,22 +124,31 @@ const longerSongNames = kingOfLimbsSongs.filter(function(song) {
 // To make this easier, let's just focus on songs for Portishead's Dummy.
 // 1. Get the list of songs from the album. You use array indices to access this.
 let dummySongs = musicData[1].albums[0].songs
-console.log(dummySongs)
+// console.log(dummySongs)
 // 2. Map to the song's length in seconds, using basic multiplication. (remember! These functions don't mutate the actual array. You have to reassign, to a "songsInSeconds" variable in this case.)
 const songsInSeconds = dummySongs.map(song => song.lengthInMins * 60) /* your code here */
 
 // Practicing with reduce
 // Now, let's see how long OK Computer is.
 // 1. Get the list of songs for OK Computer.
-const okComputerSongs = []
+const okComputerSongs = musicData[0].albums[1].songs
+// console.log(okComputerSongs)
 // 2. Calculate the length of the album using reduce!
-const albumLength = okComputerSongs.reduce /* your code here */
+const albumLength = okComputerSongs.reduce((timeSum, curr) => {
+  return timeSum + curr.lengthInMins
+}, 0) /* your code here */
+// console.log(albumLength)
 
 // Getting fancier
 
 // Get every third song on the "Third" album.
 // Note: There are more parameters to the filter callback function than just the current item in the list!
-const everyThirdSong = []
+thirdSongs = musicData[1].albums[1].songs
+console.log(thirdSongs)
+const everyThirdSong = thirdSongs.filter((song, index) => {
+  
+})
+
 
 // Find the albums with descriptions longer than 90 words.
 // Note: You'll have to loop over the list of albums for both artists! You can use a loop for this, or the fancy forEach() function.
