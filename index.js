@@ -108,6 +108,7 @@ const musicData = [
 const radioheadAlbums = musicData[0].albums
 // 2. Find by the album's name.
 const matchingAlbum = radioheadAlbums.find(album => album.title === 'The King of Limbs')
+console.log(matchingAlbum)
                                       
 // Practicing with filter
 // Get every song on the King of Limbs with a title longer than one word.
@@ -118,6 +119,7 @@ const kingOfLimbsSongs = matchingAlbum.songs
 const longerSongNames = kingOfLimbsSongs.filter(song => {
   return song.title.split(" ").length > 1;
 }) /* your code here */
+console.log(longerSongNames)
 
 // Practicing with map
 // Let's figure out how may seconds long each song is.
@@ -126,7 +128,8 @@ const longerSongNames = kingOfLimbsSongs.filter(song => {
 let dummySongs = musicData[1].albums[0].songs
 // console.log(dummySongs)
 // 2. Map to the song's length in seconds, using basic multiplication. (remember! These functions don't mutate the actual array. You have to reassign, to a "songsInSeconds" variable in this case.)
-const songsInSeconds = dummySongs.map(song => song.lengthInMins * 60) /* your code here */
+const songsInSeconds = dummySongs.map(song => song.lengthInSeconds = song.lengthInMins * 60) /* your code here */
+console.log(dummySongs)
 
 // Practicing with reduce
 // Now, let's see how long OK Computer is.
@@ -137,6 +140,7 @@ const okComputerSongs = musicData[0].albums[1].songs
 const albumLength = okComputerSongs.reduce((timeSum, curr) => {
   return timeSum + curr.lengthInMins
 }, 0) /* your code here */
+console.log(albumLength)
 
 // Getting fancier
 
@@ -146,6 +150,7 @@ thirdSongs = musicData[1].albums[1].songs
 const everyThirdSong = thirdSongs.filter((song, index) => {
   return (index + 1) % 3 == 0;
 })
+console.log(everyThirdSong)
 
 // Find the albums with descriptions longer than 90 words.
 // Note: You'll have to loop over the list of albums for both artists! You can use a loop for this, or the fancy forEach() function.
@@ -154,6 +159,7 @@ const longerThan90 = []
 musicData.forEach(curr => {
   longerThan90 = [...longerThan90, ...curr.albums.filter(album => album.description.split(" ").length > 90)]
 })
+console.log(longerThan90)
 
 // Get the list of songs across all albums
 // Note: This requires some nested looping. I would also recommend something that rhymes with "shmaccumulator" for the outermost callback!
@@ -163,3 +169,4 @@ musicData.forEach(curr => {
     allSongs = [...allSongs, ...album.songs]
   })
 })
+console.log(allSongs)
