@@ -115,7 +115,7 @@ const matchingAlbum = radioheadAlbums.find(album => album.title === 'The King of
 // 1. Get the list of King of Limbs songs. You can use your result from the previous question for this.
 const kingOfLimbsSongs = matchingAlbum.songs
 // 2. Find the list of matching songs
-const longerSongNames = kingOfLimbsSongs.filter(function(song) {
+const longerSongNames = kingOfLimbsSongs.filter(song => {
   return song.title.split(" ").length > 1;
 }) /* your code here */
 
@@ -144,15 +144,17 @@ const albumLength = okComputerSongs.reduce((timeSum, curr) => {
 // Get every third song on the "Third" album.
 // Note: There are more parameters to the filter callback function than just the current item in the list!
 thirdSongs = musicData[1].albums[1].songs
-console.log(thirdSongs)
 const everyThirdSong = thirdSongs.filter((song, index) => {
-  
+  return (index + 1) % 3 == 0;
 })
-
 
 // Find the albums with descriptions longer than 90 words.
 // Note: You'll have to loop over the list of albums for both artists! You can use a loop for this, or the fancy forEach() function.
+
 const longerThan90 = []
+musicData.forEach(curr => {
+  longerThan90 = [...longerThan90, ...curr.albums.filter(album => album.description.split(" ").length > 90)]
+})
 
 // Get the list of songs across all albums
 // Note: This requires some nested looping. I would also recommend something that rhymes with "shmaccumulator" for the outermost callback!
