@@ -137,7 +137,6 @@ const okComputerSongs = musicData[0].albums[1].songs
 const albumLength = okComputerSongs.reduce((timeSum, curr) => {
   return timeSum + curr.lengthInMins
 }, 0) /* your code here */
-// console.log(albumLength)
 
 // Getting fancier
 
@@ -159,3 +158,8 @@ musicData.forEach(curr => {
 // Get the list of songs across all albums
 // Note: This requires some nested looping. I would also recommend something that rhymes with "shmaccumulator" for the outermost callback!
 const allSongs = []
+musicData.forEach(curr => {
+  curr.albums.forEach (album => {
+    allSongs = [...allSongs, ...album.songs]
+  })
+})
